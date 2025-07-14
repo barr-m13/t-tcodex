@@ -21,7 +21,7 @@ export default function Home() {
               
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
                 <Link 
-                  href="/future-insights" 
+                  href="/articles" 
                   className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-base font-medium text-black hover:bg-gray-200 transition-colors"
                 >
                   Explore Our Insights
