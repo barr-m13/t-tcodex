@@ -26,11 +26,11 @@ export default function Header() {
               </li>
               <li className="transition-colors hover:text-white flex items-center">
                 <FileTextIcon className="mr-2 h-4 w-4" />
-                <Link href="/future-insights">Future-Insights</Link>
+                <Link href="/articles">Articles</Link>
               </li>
               <li className="transition-colors hover:text-white flex items-center">
                 <PersonIcon className="mr-2 h-4 w-4" />
-                <Link href="/expertise">Expertise</Link>
+                <Link href="/about">About</Link>
               </li>
               <li className="transition-colors hover:text-white flex items-center">
                 <ChatBubbleIcon className="mr-2 h-4 w-4" />
@@ -68,15 +68,15 @@ export default function Header() {
                 </Link>
               </li>
               <li className="transition-colors hover:text-white px-3 py-2 rounded-md hover:bg-white/10">
-                <Link href="/future-insights" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/articles" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
                   <FileTextIcon className="mr-2 h-4 w-4" />
-                  <span>Future-Insights</span>
+                  <span>Articles</span>
                 </Link>
               </li>
               <li className="transition-colors hover:text-white px-3 py-2 rounded-md hover:bg-white/10">
-                <Link href="/expertise" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/about" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
                   <PersonIcon className="mr-2 h-4 w-4" />
-                  <span>Our Expertise</span>
+                  <span>About</span>
                 </Link>
               </li>
               <li className="transition-colors hover:text-white px-3 py-2 rounded-md hover:bg-white/10">

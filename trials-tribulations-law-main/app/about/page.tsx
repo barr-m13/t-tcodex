@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import EnhancedCoreCapabilities from '@/components/enhanced-core-capabilities'
 
-export default function ExpertisePage() {
+export default function AboutPage() {
   return (
     <section className="min-h-screen bg-black text-white pb-24">
       {/* Hero Section */}
@@ -18,9 +18,9 @@ export default function ExpertisePage() {
         />
         
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">LEGAL FUTURISM EXPERTISE</h1>
+          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">Codifying the Future</h1>
           <p className="text-xl md:text-2xl font-serif italic text-gray-300 max-w-3xl">
-            Creating the Future of Law Through AI, Creativity, and Strategic Foresight
+            Legal Insight for a Creative, Machine Age
           </p>
         </div>
       </div>
