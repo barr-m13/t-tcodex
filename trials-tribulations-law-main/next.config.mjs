@@ -1,4 +1,3 @@
-// next.config.mjs
 import withMDX from '@next/mdx';
 
 const withMDXConfig = withMDX({
@@ -7,6 +6,7 @@ const withMDXConfig = withMDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Custom webpack config to support video files (mp4, webm)
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(mp4|webm)$/i,
