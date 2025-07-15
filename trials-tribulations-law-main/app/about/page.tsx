@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import EnhancedCoreCapabilities from '@/components/enhanced-core-capabilities'
 
-export default function ExpertisePage() {
+export default function AboutPage() {
   return (
     <section className="min-h-screen bg-black text-white pb-24">
       {/* Hero Section */}
@@ -18,9 +18,9 @@ export default function ExpertisePage() {
         />
         
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">LEGAL FUTURISM EXPERTISE</h1>
+          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">Codifying the Future</h1>
           <p className="text-xl md:text-2xl font-serif italic text-gray-300 max-w-3xl">
-            Creating the Future of Law Through AI, Creativity, and Strategic Foresight
+            Legal Insight for a Creative, Machine Age
           </p>
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function ExpertisePage() {
           
           <div className="bg-zinc-900/30 border border-white/10 rounded-lg p-8 mb-12 hover:border-white/20 transition-all duration-300">
             <p className="text-xl mb-8">
-              We've identified psychological patterns in career development that reveal <span className="font-semibold text-indigo-400">opportunities and threats most professionals never see</span>. 
+              We&apos;ve identified psychological patterns in career development that reveal <span className="font-semibold text-indigo-400">opportunities and threats most professionals never see</span>.
               Our methodologies combine techniques from fields most would never connect, creating results conventional approaches cannot achieve.
             </p>
 

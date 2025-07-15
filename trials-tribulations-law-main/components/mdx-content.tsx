@@ -1,15 +1,10 @@
 import { JSX } from 'react'
-import { highlight } from 'sugar-high'
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
+import rehypePrism from 'rehype-prism-plus'
 import { MDXComponents } from 'mdx/types'
 
 import Counter from '@/components/counter'
-
-function Code({ children, ...props }: any) {
-  let codeHTML = highlight(children)
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
-}
 
 function CustomImage(props: JSX.IntrinsicElements['img']) {
   const { src, alt = "", width: widthProp, height: heightProp, ...rest } = props;
@@ -53,7 +48,6 @@ function Video(props: JSX.IntrinsicElements['video']) {
 }
 
 const mdxComponents: MDXComponents = {
-  code: Code,
   img: CustomImage,
   Counter
 }
@@ -62,6 +56,7 @@ export default function MDXContent(props: JSX.IntrinsicAttributes & MDXRemotePro
   return (
     <MDXRemote
       {...props}
+      options={{ mdxOptions: { rehypePlugins: [rehypePrism] } }}
       components={{ ...mdxComponents, ...(props.components || {}) }}
     />
   );
