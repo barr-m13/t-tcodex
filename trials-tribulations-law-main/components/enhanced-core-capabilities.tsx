@@ -21,7 +21,7 @@ export function CoreCapability({
   const getAccentColor = () => {
     if (title.includes('Legal Career')) return 'from-indigo-900/50';
     if (title.includes('Strategic Career')) return 'from-blue-900/50';
-    if (title.includes('Technical Translation')) return 'from-purple-900/50';
+    if (title.includes('Technical Translation')) return 'from-blue-900/50';
     if (title.includes('Media Intelligence')) return 'from-emerald-900/50';
     return 'from-indigo-900/50'; // Default color
   };
@@ -29,7 +29,7 @@ export function CoreCapability({
   const getIconColor = () => {
     if (title.includes('Legal Career')) return 'bg-indigo-900/50 text-indigo-400 group-hover:bg-indigo-800/60 group-hover:text-indigo-300';
     if (title.includes('Strategic Career')) return 'bg-blue-900/50 text-blue-400 group-hover:bg-blue-800/60 group-hover:text-blue-300';
-    if (title.includes('Technical Translation')) return 'bg-purple-900/50 text-purple-400 group-hover:bg-purple-800/60 group-hover:text-purple-300';
+    if (title.includes('Technical Translation')) return 'bg-blue-900/50 text-blue-400 group-hover:bg-blue-800/60 group-hover:text-blue-300';
     if (title.includes('Media Intelligence')) return 'bg-emerald-900/50 text-emerald-400 group-hover:bg-emerald-800/60 group-hover:text-emerald-300';
     return 'bg-indigo-900/50 text-indigo-400 group-hover:bg-indigo-800/60 group-hover:text-indigo-300';
   };

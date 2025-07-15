@@ -59,14 +59,14 @@ export default function EnhancedNewsletterForm() {
           
           <div className="mb-4">
             <p className="text-lg mb-6">
-              When you join, you'll receive our <span className="font-bold text-indigo-400">Legal Futurist's Toolkit</span> — exclusive frameworks to navigate technological disruption.
+                When you join, you&apos;ll receive our <span className="font-bold text-indigo-400">Legal Futurist&apos;s Toolkit</span> — exclusive frameworks to navigate technological disruption.
             </p>
           </div>
 
           {isSubscribed ? (
             <div className="bg-indigo-900/30 border border-indigo-500/30 rounded-lg p-6 max-w-xl mx-auto">
               <h3 className="text-2xl font-bold mb-2">Thank you for subscribing!</h3>
-              <p>Check your inbox for the Legal Futurist's Toolkit and your first newsletter.</p>
+                <p>Check your inbox for the Legal Futurist&apos;s Toolkit and your first newsletter.</p>
             </div>
           ) : (
             <form

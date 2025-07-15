@@ -56,10 +56,10 @@ export default function CollaboratePage() {
           </div>
 
           {/* Writing & Content Support */}
-          <div className="bg-zinc-900/50 border border-white/10 rounded-lg p-8 hover:border-purple-500/30 hover:bg-zinc-900/80 transition-all duration-300">
+          <div className="bg-zinc-900/50 border border-white/10 rounded-lg p-8 hover:border-blue-500/30 hover:bg-zinc-900/80 transition-all duration-300">
             <div className="mb-4">
-              <div className="w-10 h-10 bg-purple-900/50 rounded-md flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-purple-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="w-10 h-10 bg-blue-900/50 rounded-md flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-blue-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8 18H16M10.0156 11.1797L12 7L13.9844 11.1797L18.5 11.9063L15.25 14.8438L16.0938 19.1875L12 17L7.90625 19.1875L8.75 14.8438L5.5 11.9063L10.0156 11.1797Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
