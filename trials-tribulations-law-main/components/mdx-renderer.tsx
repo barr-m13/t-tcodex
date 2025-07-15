@@ -1,6 +1,7 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
 import VideoPlayer from './video-player'
+import rehypePrism from 'rehype-prism-plus'
 import { highlight } from 'sugar-high'
 import { MDXComponents } from 'mdx/types'
 
@@ -21,5 +22,12 @@ const components: MDXComponents = {
 }
 
 export default function MDXRenderer(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
-  return <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
+  return (
+    <MDXRemote
+      {...props}
+      options={{ mdxOptions: { rehypePlugins: [rehypePrism] } }}
+      components={{ ...components, ...(props.components || {}) }}
+    />
+  )
 }
+
