@@ -13,11 +13,11 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
             <h1 className="text-5xl sm:text-6xl font-serif font-bold leading-tight">
-  Legal Futurism - Where Law, AI, Media and Creative Vision Converge
-</h1>
-<p className="mt-6 text-xl text-gray-300 max-w-xl">
-  Pioneering where visionary legal minds harness AI & Media to creativly reshape the profession. We reveal hidden opportunities invisible to the mainstream—positioning you to dominate emerging fields before others recognise they exist.
-</p>
+              Rewriting Law for the Post-Human Age
+            </h1>
+            <p className="mt-6 text-xl text-gray-300 max-w-xl">
+              Exploring AI, Media, and Power Through the Legal Mind
+            </p>
               
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
                 <Link 
