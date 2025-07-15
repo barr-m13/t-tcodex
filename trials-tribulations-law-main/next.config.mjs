@@ -1,9 +1,12 @@
-// next.config.mjs
+import withMDX from '@next/mdx';
+
+const withMDXConfig = withMDX({
+  extension: /\.mdx?$/,
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remove output: 'export' since it's causing Server Actions conflicts
-
-  // Keep webpack config for media files
+  // Custom webpack config to support video files (mp4, webm)
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(mp4|webm)$/i,
@@ -16,7 +19,7 @@ const nextConfig = {
       },
     });
     return config;
-  }
+  },
 };
 
-export default nextConfig;
+export default withMDXConfig(nextConfig);
