@@ -40,7 +40,7 @@ export default function AboutPage() {
           
           <div className="bg-zinc-900/30 border border-white/10 rounded-lg p-8 mb-12 hover:border-white/20 transition-all duration-300">
             <p className="text-xl mb-8">
-              We've identified psychological patterns in career development that reveal <span className="font-semibold text-indigo-400">opportunities and threats most professionals never see</span>. 
+              We&apos;ve identified psychological patterns in career development that reveal <span className="font-semibold text-indigo-400">opportunities and threats most professionals never see</span>.
               Our methodologies combine techniques from fields most would never connect, creating results conventional approaches cannot achieve.
             </p>
 
