@@ -30,9 +30,9 @@ export default function ArticleCard({
       <p className="text-sm text-gray-400 mb-2">{publishedAt}</p>
       <p className="text-gray-300 mb-3">{summary}</p>
       <div className="flex flex-wrap gap-2">
-        {tags?.map((t) => (
-          <span key={t} className="text-xs bg-gray-700 px-2 py-1 rounded-full">
-            {t}
+        {tags?.map((tag, i) => (
+          <span key={i} className="text-xs bg-gray-700 px-2 py-1 rounded-full">
+            {typeof tag === 'string' ? tag : tag.name}
           </span>
         ))}
       </div>
