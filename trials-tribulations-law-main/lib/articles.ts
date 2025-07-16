@@ -10,7 +10,7 @@ export interface ArticleMetadata {
   image?: string
   video?: string
   author?: string
-  tags?: string[]
+  tags?: string[] // ✅ Kept as simple string array
   publishedAt?: string
   slug: string
 }
@@ -26,12 +26,24 @@ function getArticleDir(slug: string) {
 
 export async function getArticles(): Promise<ArticleMetadata[]> {
   const slugs = fs.readdirSync(articlesDirectory)
+
   const articles = slugs.map(slug => {
     const filePath = path.join(getArticleDir(slug), 'index.mdx')
     if (!fs.existsSync(filePath)) return null
+
     const file = fs.readFileSync(filePath, 'utf8')
     const { data } = matter(file)
-    return { ...(data as ArticleMetadata), slug }
+
+    // ✅ Normalize tags to string[]
+    const tags = Array.isArray(data.tags)
+      ? data.tags.map((t: any) => (typeof t === 'string' ? t : t.name)).filter(Boolean)
+      : []
+
+    return {
+      ...(data as Omit<ArticleMetadata, 'tags'>),
+      tags,
+      slug
+    }
   }).filter(Boolean) as ArticleMetadata[]
 
   return articles.sort((a, b) => {
@@ -43,7 +55,21 @@ export async function getArticles(): Promise<ArticleMetadata[]> {
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
   const filePath = path.join(getArticleDir(slug), 'index.mdx')
   if (!fs.existsSync(filePath)) return null
+
   const file = fs.readFileSync(filePath, 'utf8')
   const { data, content } = matter(file)
-  return { metadata: { ...(data as ArticleMetadata), slug }, content }
+
+  // ✅ Normalize tags here too for consistency
+  const tags = Array.isArray(data.tags)
+    ? data.tags.map((t: any) => (typeof t === 'string' ? t : t.name)).filter(Boolean)
+    : []
+
+  return {
+    metadata: {
+      ...(data as Omit<ArticleMetadata, 'tags'>),
+      tags,
+      slug
+    },
+    content
+  }
 }
