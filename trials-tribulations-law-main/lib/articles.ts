@@ -10,6 +10,7 @@ export interface ArticleMetadata {
   image?: string
   video?: string
   author?: string
+  tags?: string[]
   publishedAt?: string
   slug: string
 }

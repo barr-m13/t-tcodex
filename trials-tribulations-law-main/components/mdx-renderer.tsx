@@ -6,7 +6,8 @@ import { MDXComponents } from 'mdx/types'
 import VideoPlayer from './video-player'
 
 function Code({ children, ...props }: any) {
-  const html = highlight(children)
+  const content = Array.isArray(children) ? children.join('') : children
+  const html = highlight(content)
   return <code dangerouslySetInnerHTML={{ __html: html }} {...props} />
 }
 
