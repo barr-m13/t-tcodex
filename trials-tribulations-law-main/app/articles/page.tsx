@@ -1,31 +1,23 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { getArticles } from "@/lib/articles";
+import { useMemo, useState, useEffect } from "react";
 import ArticleCard from "@/components/ArticleCard";
 
-export const metadata = {
-  title: "Articles",
-};
+interface Article {
+  slug: string;
+  title: string;
+  summary: string;
+  tags?: string[];
+  // Add other metadata fields if needed
+}
 
-export default function ArticlesPageWrapper() {
+export default function ArticlesClient({ articles }: { articles: Article[] }) {
   const [search, setSearch] = useState("");
   const [tag, setTag] = useState("All");
 
-  const [articles, setArticles] = useState([]);
-
-  // Load articles on mount
-  useMemo(() => {
-    async function load() {
-      const data = await getArticles();
-      setArticles(data);
-    }
-    load();
-  }, []);
-
   const allTags = useMemo(() => {
     const tags = new Set<string>();
-    articles.forEach((a) => a.tags?.forEach((t: string) => tags.add(t)));
+    articles.forEach((a) => a.tags?.forEach((t) => tags.add(t)));
     return ["All", ...Array.from(tags)];
   }, [articles]);
 
@@ -34,9 +26,7 @@ export default function ArticlesPageWrapper() {
       const matchesText =
         a.title.toLowerCase().includes(search.toLowerCase()) ||
         a.summary.toLowerCase().includes(search.toLowerCase()) ||
-        a.tags?.some((t: string) =>
-          t.toLowerCase().includes(search.toLowerCase())
-        );
+        a.tags?.some((t) => t.toLowerCase().includes(search.toLowerCase()));
       const matchesTag = tag === "All" || a.tags?.includes(tag);
       return matchesText && matchesTag;
     });
@@ -83,3 +73,4 @@ export default function ArticlesPageWrapper() {
     </main>
   );
 }
+

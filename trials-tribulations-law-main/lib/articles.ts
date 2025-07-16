@@ -1,3 +1,4 @@
+// lib/articles.ts
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
@@ -12,6 +13,7 @@ export interface ArticleMetadata {
   author?: string
   publishedAt?: string
   slug: string
+  [key: string]: any
 }
 
 export interface Article {
@@ -25,7 +27,7 @@ function getArticleDir(slug: string) {
 
 export async function getArticles(): Promise<ArticleMetadata[]> {
   const slugs = fs.readdirSync(articlesDirectory)
-  const articles = slugs.map(slug => {
+  const articles = slugs.map((slug) => {
     const filePath = path.join(getArticleDir(slug), 'index.mdx')
     if (!fs.existsSync(filePath)) return null
     const file = fs.readFileSync(filePath, 'utf8')
@@ -44,5 +46,9 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
   if (!fs.existsSync(filePath)) return null
   const file = fs.readFileSync(filePath, 'utf8')
   const { data, content } = matter(file)
-  return { metadata: { ...(data as ArticleMetadata), slug }, content }
+  return {
+    metadata: { ...(data as ArticleMetadata), slug },
+    content
+  }
 }
+
