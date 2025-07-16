@@ -1,7 +1,8 @@
+// next.config.mjs
 import withMDX from '@next/mdx'
 
 const withMDXConfig = withMDX({
-  extension: /\.mdx?$/,
+  extension: /\.mdx?$/
 })
 
 /** @type {import('next').NextConfig} */
@@ -17,8 +18,8 @@ const nextConfig = {
           name: 'static/media/[name].[hash].[ext]',
         },
       },
-    });
-    return config;
+    })
+    return config
   },
 }
 
