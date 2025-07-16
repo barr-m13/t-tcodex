@@ -1,45 +1,12 @@
-"use client";
-
-import { useState, useMemo, useEffect } from "react";
 import { getArticles } from "@/lib/articles";
-import ArticleCard from "@/components/ArticleCard";
+import ArticlesClient from "./articles-client";
 
 export const metadata = {
   title: "Articles",
 };
 
-export default function ArticlesPage() {
-  const [search, setSearch] = useState("");
-  const [tag, setTag] = useState("All");
-  const [articles, setArticles] = useState([]);
-
-  // Load articles on mount
-  useEffect(() => {
-    async function load() {
-      const data = await getArticles();
-      setArticles(data);
-    }
-    load();
-  }, []);
-
-  const allTags = useMemo(() => {
-    const tags = new Set<string>();
-    articles.forEach((a) => a.tags?.forEach((t: string) => tags.add(t)));
-    return ["All", ...Array.from(tags)];
-  }, [articles]);
-
-  const filtered = useMemo(() => {
-    return articles.filter((a) => {
-      const matchesText =
-        a.title.toLowerCase().includes(search.toLowerCase()) ||
-        a.summary.toLowerCase().includes(search.toLowerCase()) ||
-        a.tags?.some((t: string) =>
-          t.toLowerCase().includes(search.toLowerCase())
-        );
-      const matchesTag = tag === "All" || a.tags?.includes(tag);
-      return matchesText && matchesTag;
-    });
-  }, [search, tag, articles]);
+export default async function ArticlesPage() {
+  const articles = await getArticles();
 
   return (
     <main className="min-h-screen bg-black text-white pb-24 pt-40">
@@ -48,36 +15,7 @@ export default function ArticlesPage() {
           Articles
         </h1>
 
-        <div className="flex flex-col md:flex-row gap-4 mb-12">
-          <input
-            type="text"
-            placeholder="Search articles..."
-            className="w-full md:w-1/2 px-4 py-2 rounded-md text-black"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <select
-            className="w-full md:w-1/3 px-4 py-2 rounded-md text-black"
-            value={tag}
-            onChange={(e) => setTag(e.target.value)}
-          >
-            {allTags.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {filtered.length > 0 ? (
-            filtered.map((article) => (
-              <ArticleCard key={article.slug} {...article} />
-            ))
-          ) : (
-            <p>No matching articles found.</p>
-          )}
-        </div>
+        <ArticlesClient articles={articles} />
       </div>
     </main>
   );

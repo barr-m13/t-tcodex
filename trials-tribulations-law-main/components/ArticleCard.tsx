@@ -1,5 +1,6 @@
 import Link from "next/link";
-import VideoPlayer from "./video-player";
+import MediaDisplay from "./media-display";
+import type { ArticleMetadata } from "@/lib/articles";
 
 export default function ArticleCard({
   title,
@@ -9,34 +10,21 @@ export default function ArticleCard({
   video,
   publishedAt,
   tags,
-}: {
-  title: string;
-  summary: string;
-  slug: string;
-  image?: string;
-  video?: string;
-  publishedAt: string;
-  tags?: string[];
-}) {
+}: ArticleMetadata) {
   return (
     <Link
       href={`/articles/${slug}`}
       className="block bg-neutral-900 rounded-xl hover:shadow-lg transition p-6"
     >
-      {video ? (
-        <VideoPlayer
-          src={video}
-          poster={image}
-          autoPlay
-          loop
+      <div className="mb-4 h-48 w-full">
+        <MediaDisplay
+          image={image}
+          video={video}
+          title={title}
+          isPreview={true}
+          className="h-full"
         />
-      ) : (
-        <img
-          src={image}
-          alt={title}
-          className="rounded-md w-full h-48 object-cover mb-4"
-        />
-      )}
+      </div>
 
       <h2 className="text-xl font-bold mb-1">{title}</h2>
       <p className="text-sm text-gray-400 mb-2">{publishedAt}</p>
