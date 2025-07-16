@@ -32,11 +32,12 @@ export default function ArticleCard({
       <div className="flex flex-wrap gap-2">
         {tags?.map((tag, i) => (
           <span key={i} className="text-xs bg-gray-700 px-2 py-1 rounded-full">
-            {typeof tag === 'string' ? tag : tag.name}
+            {tag}
           </span>
         ))}
       </div>
     </Link>
   );
 }
+
 
