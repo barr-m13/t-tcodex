@@ -37,6 +37,7 @@ export default function ArticleCard({
           className="rounded-md w-full h-48 object-cover mb-4"
         />
       )}
+
       <h2 className="text-xl font-bold mb-1">{title}</h2>
       <p className="text-sm text-gray-400 mb-2">{publishedAt}</p>
       <p className="text-gray-300 mb-3">{summary}</p>
@@ -50,3 +51,4 @@ export default function ArticleCard({
     </Link>
   );
 }
+

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { getArticles } from "@/lib/articles";
 import ArticleCard from "@/components/ArticleCard";
 
@@ -8,14 +8,13 @@ export const metadata = {
   title: "Articles",
 };
 
-export default function ArticlesPageWrapper() {
+export default function ArticlesPage() {
   const [search, setSearch] = useState("");
   const [tag, setTag] = useState("All");
-
   const [articles, setArticles] = useState([]);
 
   // Load articles on mount
-  useMemo(() => {
+  useEffect(() => {
     async function load() {
       const data = await getArticles();
       setArticles(data);
