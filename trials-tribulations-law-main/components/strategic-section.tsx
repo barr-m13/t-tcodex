@@ -18,7 +18,7 @@ export default function StrategicSection({
       {/* Animated gradient background on hover */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-700">
         <div className={`absolute inset-0 bg-gradient-to-br ${
-          icon === 'brain' ? 'from-purple-600/40' : 
+          icon === 'brain' ? 'from-blue-600/40' :
           icon === 'shield' ? 'from-blue-600/40' : 
           'from-emerald-600/40'
         } to-transparent blur-xl`}></div>
@@ -28,7 +28,7 @@ export default function StrategicSection({
         {/* Enhanced icon section */}
         <div className="mb-6 relative">
           <div className={`absolute inset-0 rounded-full ${
-            icon === 'brain' ? 'bg-purple-600' : 
+            icon === 'brain' ? 'bg-blue-600' :
             icon === 'shield' ? 'bg-blue-600' : 
             'bg-emerald-600'
           } opacity-10 blur-md group-hover:opacity-20 transition-all duration-300`}></div>
