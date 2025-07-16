@@ -1,14 +1,24 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
 import rehypePrism from 'rehype-prism-plus'
-import { highlight } from 'sugar-high'
 import { MDXComponents } from 'mdx/types'
 import VideoPlayer from './video-player'
 
-function Code({ children, ...props }: any) {
-  const content = Array.isArray(children) ? children.join('') : children
-  const html = highlight(content)
-  return <code dangerouslySetInnerHTML={{ __html: html }} {...props} />
+function Code({ children, className = '', ...props }: any) {
+  const content =
+    typeof children === 'string'
+      ? children
+      : Array.isArray(children)
+      ? children.map(child => (typeof child === 'string' ? child : '')).join('')
+      : ''
+
+  return (
+    <pre className="my-4 rounded-lg bg-gray-800 p-4 overflow-x-auto">
+      <code className={className} {...props}>
+        {content}
+      </code>
+    </pre>
+  )
 }
 
 function Img(props: any) {
