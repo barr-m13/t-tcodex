@@ -22,7 +22,7 @@ export default function Header() {
           {/* Logo/Brand */}
           <div className="flex items-center space-x-8">
             <Link href="/" className="font-serif text-2xl font-bold text-white">
-              TT
+              T&T
             </Link>
 
             {/* Desktop Navigation */}
